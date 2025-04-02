@@ -1,0 +1,94 @@
+<!--/templates/base.html-->
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>{% block title %}{% endblock %}</title>
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous"/>
+        <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.min.js" integrity="sha384-+sLIOodYLS7CIrQpBjl+C7nPvqq+FbNUBDunl/OZv93DB7Ln/533i8e/mZXLi/P+" crossorigin="anonymous"></script>
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/base.css') }}"/>
+        <script src="{{ url_for('static', filename='js/base.js') }}"></script>
+        <style>
+            html, body {
+                height: 100%;
+                margin: 0;
+            }
+            .leaflet-container {
+                height: 400px;
+                width: 600px;
+                max-width: 100%;
+                max-height: 100%;
+            }
+        </style>
+    {% block head %}
+    {% endblock %}
+    </head>
+    <body>
+        <nav class="navbar navbar-expand-lg navbar-light" style="background-color: rgba(240,138,0,255);">
+            <a  href="/cerrarSesion"><h5>Cerrar Sesión</h5><br><p>{{ ema }}</p></a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarScroll" aria-controls="navbarScroll" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarScroll">
+                <ul class="navbar-nav mr-auto my-2 my-lg-0 navbar-nav-scroll" style="max-height: 100px;">
+                    <li class="nav-item active">
+                        <a class="nav-link" href="/menu"><h5><br>Home</br></h5> <span class="sr-only">(current)</span></a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-expanded="false">
+                            <strong><h5>Gestión de Usuarios</h5></strong>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="#">Usuarios</a></li>
+                            <li><a class="dropdown-item" href="/vistaRol">Roles</a></li>
+                            <li><hr class="dropdown-divider"></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-expanded="false">
+                            <b><h5>Gestión de Indicadores</h5></b>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="#">Indicadores</a></li>
+                            <li><a class="dropdown-item" href="#">Tipo Indicador</a></li>
+                            <li><a class="dropdown-item" href="#">Unidad de Medición</a></li>
+                            <li><a class="dropdown-item" href="#">Sentido</a></li>
+                            <li><a class="dropdown-item" href="#">Frecuencia</a></li>
+                            <li><a class="dropdown-item" href="#">Fuente</a></li>
+                            <li><a class="dropdown-item" href="#">Representación Visual</a></li>
+                            <li><a class="dropdown-item" href="#">Variables</a></li>
+                            <li><a class="dropdown-item" href="#">Responsables</a></li>
+                            <li><hr class="dropdown-divider"></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item">
+                        <!--<a class="nav-link disabled">Link</a>-->
+                    </li>
+                </ul>
+                <form class="d-flex">
+                    <input class="form-control mr-2" type="search" placeholder="Search" aria-label="Search">
+                    <button class="btn btn-outline-success" type="submit">Search</button>
+                </form>
+            </div>
+        </nav>
+    {% block body %}
+    {% endblock %}
+        <!-- Footer -->
+        <footer class="text-center text-lg-start fixed-bottom">
+            <!-- Grid container -->
+            <!-- Copyright -->
+            <div class="text-center p-3" style="background-color: rgba(240,138,0,255);">
+                © 2025 Copyright:
+                <a class="text-dark" href="https://www.usbmed.edu.co/">Universidad de San Buenaventura Medellín</a>
+            </div>
+            <!-- Copyright -->    
+        </footer>
+        <!-- Footer -->
+    </body>
+</html>
+
